@@ -16,7 +16,7 @@
           <li><a href="#">Messages</a></li>
         </ul>
 
-        <form *ngIf="!loggedIn()" #loginFrom="ngForm" class="navbar-form navbar-right" (ngSubmit)="login()">
+        <form *ngIf="!loggedIn()" #loginForm="ngForm" class="navbar-form navbar-right" (ngSubmit)="login()">
           <div class="form-group">
             <input type="text" #username="ngModel" placeholder="Email" class="form-control" requried name = "username" [(ngModel)]="model.username">
           </div>
