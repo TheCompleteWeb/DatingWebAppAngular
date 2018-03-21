@@ -19,4 +19,13 @@ export class AuthService {
             }
         });
     }
+
+    register(model: any) {
+        return this.http.post(this.baseUrl + 'register', model, this.requestOptions());
+    }
+
+    private requestOptions() {
+        const headers = new Headers({'Content-type': 'application/json'});
+        return new RequestOptions({headers: headers});
+    }
 }
