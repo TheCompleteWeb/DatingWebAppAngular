@@ -20,6 +20,7 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { UserService } from './_services/user.service';
+import { MemberCardComponent } from './members/member-card/member-card.component';
 
 
 
@@ -33,7 +34,7 @@ import { UserService } from './_services/user.service';
     ListsComponent,
     MessagesComponent,
     MemberListComponent,
-    MemberListComponent
+    MemberCardComponent
 ],
   imports: [
     BrowserModule,
