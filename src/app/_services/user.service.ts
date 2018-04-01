@@ -22,7 +22,7 @@ export class UserService {
         let token = localStorage.getItem('token');
         if (token) {
             // tslint:disable-next-line:prefer-const
-            let headers = new Headers({'Authorization': 'Bearer' + token});
+            let headers = new Headers({'Authorization': 'Bearer ' + token});
             headers.append('Content-type', 'application/json');
             return new RequestOptions({headers: headers});
         }

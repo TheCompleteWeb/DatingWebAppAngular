@@ -16,9 +16,10 @@ import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
-import { MemberListComponent } from './member-list/member-list.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
+import { UserService } from './_services/user.service';
 
 
 
@@ -44,7 +45,8 @@ import { RouterModule } from '@angular/router';
   providers: [
     AuthService,
     AlertifyService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

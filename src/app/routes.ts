@@ -2,7 +2,7 @@ import { HomeComponent } from './home/home.component';
 import { Routes } from '@angular/router';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
-import { MemberListComponent } from './member-list/member-list.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
 import { AuthGuard } from './auth.guard';
 
 export const appRoutes: Routes = [
