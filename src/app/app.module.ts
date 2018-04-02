@@ -21,6 +21,7 @@ import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { UserService } from './_services/user.service';
 import { MemberCardComponent } from './members/member-card/member-card.component';
+import { AuthModule } from './auth/auth.module';
 
 
 
@@ -41,7 +42,8 @@ import { MemberCardComponent } from './members/member-card/member-card.component
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AuthModule
   ],
   providers: [
     AuthService,
