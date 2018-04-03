@@ -12,11 +12,19 @@ import { AuthHttp } from 'angular2-jwt';
 export class UserService {
     baseUrl = environment.apiUrl;
     constructor(private authHttp: AuthHttp) { }
+
     getUsers(): Observable<User[]> {
         return this.authHttp
         .get(this.baseUrl + 'users')
         .map(response => response.json())
         .catch(this.handleError);
+    }
+
+    getUser(id): Observable<User> {
+        return this.authHttp
+            .get(this.baseUrl + 'users/' + id)
+            .map(response => <User>response.json())
+            .catch(this.handleError);
     }
 
     // private jwt() {

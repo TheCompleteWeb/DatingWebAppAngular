@@ -22,6 +22,7 @@ import { RouterModule } from '@angular/router';
 import { UserService } from './_services/user.service';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { AuthModule } from './auth/auth.module';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 
 
 
@@ -35,7 +36,8 @@ import { AuthModule } from './auth/auth.module';
     ListsComponent,
     MessagesComponent,
     MemberListComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberDetailComponent
 ],
   imports: [
     BrowserModule,
