@@ -19,5 +19,5 @@ export const appRoutes: Routes = [
             {path: 'lists', component: ListsComponent}
         ]
     },
-    {path: '*', redirectTo: 'home', pathMatch: 'full'}
+    {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
