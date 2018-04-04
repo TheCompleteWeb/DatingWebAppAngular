@@ -1,17 +1,17 @@
 .profile-image {
     margin: 25px;
-    width : 85%;
+    width: 85%;
     height: 85%;
 }
 
 .panel-body {
-    padding : 0 25px;
+    padding: 0 25px;
 }
 
-.panel-body {
-    padding : 10px, 15px;
-    background-color : #fff;
-    border-top : none;
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: none;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
