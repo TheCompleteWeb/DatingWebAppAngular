@@ -19,7 +19,4 @@ export class MemberListComponent implements OnInit {
       this.users = data['users'];
     });
   }
-
-  
-
 }
