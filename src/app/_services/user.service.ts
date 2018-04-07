@@ -27,16 +27,10 @@ export class UserService {
             .catch(this.handleError);
     }
 
-    // private jwt() {
-    //     // tslint:disable-next-line:prefer-const
-    //     let token = localStorage.getItem('token');
-    //     if (token) {
-    //         // tslint:disable-next-line:prefer-const
-    //         let headers = new Headers({'Authorization': 'Bearer ' + token});
-    //         headers.append('Content-type', 'application/json');
-    //         return new RequestOptions({headers: headers});
-    //     }
-    // }
+    updateUser(id: number, user: User) {
+        return this.authHttp.put(this.baseUrl + 'users/' + id, user)
+        .catch(this.handleError);
+    }
 
     private handleError(error: any) {
         const applicationError = error.headers.get('Application-Error');
