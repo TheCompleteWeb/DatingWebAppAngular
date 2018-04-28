@@ -3,6 +3,8 @@ import { Photo } from '../../_model/Photo';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../../_services/auth.service';
+import { UserService } from '../../_services/user.service';
+import { AlertifyService } from '../../_services/alertify.service';
 
 @Component({
   selector: 'app-photo-editor',
@@ -15,7 +17,11 @@ export class PhotoEditorComponent implements OnInit {
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private alertify: AlertifyService
+  ) {}
 
   ngOnInit() {
     this.initializeUploader();
@@ -27,7 +33,11 @@ export class PhotoEditorComponent implements OnInit {
 
   initializeUploader() {
     this.uploader = new FileUploader({
-      url: this.baseUrl + 'users/' + this.authService.decodedToken.nameid + '/photos',
+      url:
+        this.baseUrl +
+        'users/' +
+        this.authService.decodedToken.nameid +
+        '/photos',
       authToken: 'Bearer ' + localStorage.getItem('token'),
       isHTML5: true,
       allowedFileType: ['image'],
@@ -37,7 +47,7 @@ export class PhotoEditorComponent implements OnInit {
     });
 
     this.uploader.onSuccessItem = (item, response, status, headers) => {
-      if (response){
+      if (response) {
         const res: Photo = JSON.parse(response);
         const photo = {
           id: res.id,
@@ -45,9 +55,22 @@ export class PhotoEditorComponent implements OnInit {
           dateAdded: res.dateAdded,
           description: res.description,
           isMain: res.isMain
-        }
+        };
         this.photos.push(photo);
       }
-    }
+    };
+  }
+
+  setMainPhoto(photo: Photo) {
+    this.userService
+      .setMainPhoto(this.authService.decodedToken.nameid, photo.id)
+      .subscribe(
+        () => {
+          console.log('successfully set to main');
+        },
+        error => {
+          this.alertify.error(error);
+        }
+      );
   }
 }
