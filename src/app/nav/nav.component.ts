@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
 
   model: any = {};
 
-  constructor(private authService: AuthService, private alertify: AlertifyService, private router: Router) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,7 +29,9 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.authService.userToken = null;
+    this.authService.currentUser = null;
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.alertify.message('logged out');
     this.router.navigate(['/home']);
   }
